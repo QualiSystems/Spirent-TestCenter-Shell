@@ -65,44 +65,18 @@
   	<ResourceFamilies>
 
     	<ResourceFamily Name="Traffic Generator" Description="" IsSearchable="true">
-    		<AttachedAttributes>
-        		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-            	<AttachedAttribute Name="Controller Group" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-            	<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-                	<AllowedValues />
-           		</AttachedAttribute>
-            	<AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-            	<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-            	<AttachedAttribute Name="Supported Applications" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-        		</AttachedAttribute>
-            	<AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
-  					<AllowedValues />
-           		</AttachedAttribute>
-            	<AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-      		</AttachedAttributes>
     		<Models />
       		<Categories />
     	</ResourceFamily>
 
     	<ResourceFamily Name="Module" Description="" IsSearchable="true">
-			<AttachedAttributes>
-        		<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-			</AttachedAttributes>
 			<Models>
 	        	<ResourceModel Name="Generic Traffic Module" Description="Generic Traffic Generator Module" SupportsConcurrentCommands="false">
+					<AttachedAttributes>
+        				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+					</AttachedAttributes>
 					<ParentModels>
 						<ParentModelName>Spirent TestCenter</ParentModelName>
 					</ParentModels>
@@ -124,22 +98,22 @@
     	</ResourceFamily>
 
 		<ResourceFamily Name="Port" IsSearchable="true" IsConnectable="true" IsLockedByDefault="true">
-    		<AttachedAttributes>
-        		<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-        		<AttachedAttribute Name="Media Type" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-        		<AttachedAttribute Name="Supported Speeds" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-        		<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-      		</AttachedAttributes>
       		<Models>
 				<ResourceModel Name="Generic Traffic Port" Description="Generaic Traffic Generator Port" SupportsConcurrentCommands="false">
+    				<AttachedAttributes>
+        				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+        				<AttachedAttribute Name="Media Type" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+        				<AttachedAttribute Name="Supported Speeds" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+        				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+      				</AttachedAttributes>
 					<ParentModels>
 						<ParentModelName>Generic Port Group</ParentModelName>
 					</ParentModels>

@@ -3,5 +3,5 @@ shell:
     author: Yoram Shamir
     email: yoram-s@quali.com
     description: Spirent TestCenter (STC) shell
-    version: 1.0.0
+    version: 1.0.1
     driver_name: StcShellDriver

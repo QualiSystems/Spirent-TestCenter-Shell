@@ -5,6 +5,32 @@
 
     <ShellModel Family="Traffic Generator">
         <ResourceModel Name="Spirent TestCenter" Description="Spirent TestCenter (STC)" ImagePath="stc_image.jpg" SupportsConcurrentCommands="false">
+    		<AttachedAttributes>
+        		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+          		</AttachedAttribute>
+            	<AttachedAttribute Name="Controller Group" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+            	<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+                	<AllowedValues />
+           		</AttachedAttribute>
+            	<AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+            	<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+            	<AttachedAttribute Name="Supported Applications" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+        		</AttachedAttribute>
+            	<AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
+  					<AllowedValues />
+           		</AttachedAttribute>
+            	<AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+      		</AttachedAttributes>
             <Drivers>
                 <DriverName>StcShellDriver</DriverName>
             </Drivers>
