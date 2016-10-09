@@ -1,0 +1,14 @@
+<Shell>
+
+	<ShellAttributes>
+	</ShellAttributes>
+
+    <ShellModel Family="Traffic Generator">
+        <ResourceModel Name="Spirent TestCenter" Description="Spirent TestCenter (STC)" ImagePath="stc_image.jpg" SupportsConcurrentCommands="false">
+            <Drivers>
+                <DriverName>StcShellDriver</DriverName>
+            </Drivers>
+        </ResourceModel>
+    </ShellModel>
+
+</Shell>

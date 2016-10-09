@@ -1,0 +1,36 @@
+set dir  {C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.64/Spirent TestCenter Application} 
+	C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.64/Spirent TestCenter Application
+source  {C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.64/Spirent TestCenter Application/pkgIndex.tcl} 
+	
+package require SpirentTestCenter
+	4.64
+stc::get system1 -children-automationoptions
+	automationoptions
+stc::get automationoptions -name
+	AutomationOptions 1
+stc::config automationoptions -LogLevel  {ERROR} 
+	
+stc::create project -under system1 
+	project1
+stc::get project1 -name
+	Project 1
+stc::perform ResetConfig -config  {system1} 
+	-Name {ResetConfigCommand 1} -Config system1 -State COMPLETED -Status {} -StartTime 1467089492.96463 -EndTime 1467089493.01864 -ElapsedTime 54 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true
+set dir  {C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.64/Spirent TestCenter Application} 
+	C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.64/Spirent TestCenter Application
+source  {C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.64/Spirent TestCenter Application/pkgIndex.tcl} 
+	
+package require SpirentTestCenter
+	4.64
+stc::get system1 -children-automationoptions
+	automationoptions
+stc::get automationoptions -name
+	AutomationOptions 1
+stc::config automationoptions -LogLevel  {ERROR} 
+	
+stc::create project -under system1 
+	project1
+stc::get project1 -name
+	Project 1
+stc::perform ResetConfig -config  {system1} 
+	-Name {ResetConfigCommand 1} -Config system1 -State COMPLETED -Status {} -StartTime 1467089822.58059 -EndTime 1467089822.6216 -ElapsedTime 41 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true
