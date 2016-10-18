@@ -4,7 +4,7 @@
 	</ShellAttributes>
 
     <ShellModel Family="Traffic Generator">
-        <ResourceModel Name="Spirent TestCenter" Description="Spirent TestCenter (STC)" ImagePath="stc_image.jpg" SupportsConcurrentCommands="false">
+        <ResourceModel Name="Spirent TestCenter" Description="Spirent TestCenter (STC)" SupportsConcurrentCommands="false">
     		<AttachedAttributes>
         		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
             		<AllowedValues />
