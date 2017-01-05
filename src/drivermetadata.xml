@@ -1,19 +1,7 @@
-<Driver Description="Spirent TestCenter shell" MainClass="driver.StcShellDriver" Name="StcShellDriver" Version="0.1.1">
+<Driver Description="Autoload driver for Spirent TestCenter chassis" MainClass="driver.TestCenterChassisDriver" Name="TestCenterChassisDriver" Version="1.0.1">
     <Layout>
 	
     	<Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">
-    	</Command>
-
-    	<Command Name="load_config" DisplayName="Load Configuration" Tags="" Description="Load STC configuration">
-    		<Parameters>
-        		<Parameter Name="config_file_name" DisplayName="Configuration file name (tcc or xml)" Type="String" Mandatory="True" DefaultValue=""/>
-    		</Parameters>
-    	</Command>
-    
-    	<Command Name="start" DisplayName="Start" Tags="" Description="Start traffic">
-    	</Command>
-    
-    	<Command Name="stop" DisplayName="Stop" Tags="" Description="Stop traffic">
     	</Command>
     
 	</Layout>

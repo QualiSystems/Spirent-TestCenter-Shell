@@ -3,8 +3,8 @@
 	<ShellAttributes>
 	</ShellAttributes>
 
-    <ShellModel Family="Traffic Generator">
-        <ResourceModel Name="Spirent TestCenter" Description="Spirent TestCenter (STC)" SupportsConcurrentCommands="false">
+    <ShellModel Family="Traffic Generator Chassis">
+        <ResourceModel Name="TestCenter Chassis" Description="Spirent TestCenter (STC) chassis" SupportsConcurrentCommands="false">
     		<AttachedAttributes>
         		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
             		<AllowedValues />
@@ -18,6 +18,9 @@
             	<AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
             		<AllowedValues />
             	</AttachedAttribute>
+	          	<AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
+                	<AllowedValues/>
+             	</AttachedAttribute>
             	<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
             		<AllowedValues />
             	</AttachedAttribute>
@@ -32,7 +35,7 @@
             	</AttachedAttribute>
       		</AttachedAttributes>
             <Drivers>
-                <DriverName>StcShellDriver</DriverName>
+                <DriverName>TestCenterChassisDriver</DriverName>
             </Drivers>
         </ResourceModel>
     </ShellModel>

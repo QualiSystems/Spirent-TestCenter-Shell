@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Tests for `StcShellDriver`
+Tests for `TestCenterChassisDriver`
 """
 
 import unittest
 
-from driver import StcShellDriver
+from src.driver import TestCenterChassisDriver
 
 
-class TestStcShellDriver(unittest.TestCase):
+class TestTestCenterChassisDriver(unittest.TestCase):
 
     def setUp(self):
         pass

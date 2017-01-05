@@ -4,6 +4,7 @@ import logging
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
 
 from testcenter.stc_app import StcApp
+from testcenter.api.stc_tcl import StcTclWrapper
 
 
 class StcHandler(object):
@@ -14,11 +15,10 @@ class StcHandler(object):
         """
 
         client_install_path = context.resource.attributes['Client Install Path']
-
         self.logger = logging.getLogger('log')
         self.logger.setLevel('DEBUG')
-        self.stc = StcApp(self.logger, client_install_path)
-        self.stc.connect(lab_server=None, chassis=context.resource.address)
+        self.stc = StcApp(self.logger, StcTclWrapper(self.logger, client_install_path))
+        self.stc.connect()
 
     def get_inventory(self, context):
         """ Return device structure with all standard attributes
@@ -29,29 +29,11 @@ class StcHandler(object):
 
         self.resources = []
         self.attributes = []
-        chassis_manager = self.stc.system.get_child('PhysicalChassisManager')
-        chassis = chassis_manager.get_child('PhysicalChassis')
+        address = context.resource.address
+        chassis = self.stc.hw.get_chassis(address)
         self._get_chassis(chassis)
         details = AutoLoadDetails(self.resources, self.attributes)
         return details
-
-    def load_config(self, context, config_file_name):
-        """
-        :type context: cloudshell.shell.core.driver_context.ResourceCommandContext
-        """
-        pass
-
-    def start_traffic(self, context):
-        """
-        :type context: cloudshell.shell.core.driver_context.ResourceRemoteCommandContext
-        """
-        pass
-
-    def stop_traffic(self, context):
-        """
-        :type context: cloudshell.shell.core.driver_context.ResourceRemoteCommandContext
-        """
-        pass
 
     def _get_chassis(self, chassis):
         """ Get chassis resource and attributes. """
@@ -60,24 +42,37 @@ class StcHandler(object):
                                                  attribute_name='Vendor',
                                                  attribute_value='Spirent'))
         self._get_attributes('', chassis,
-                             {'Model': 'Model',
-                              'Server Description': 'Hostname',
-                              'Version': 'FirmwareVersion'})
-        for test_module in chassis.get_children('PhysicalTestModule'):
-            description = test_module.get_attribute('Description')
-            if description:
+                             {'Model': chassis.attributes['Model'],
+                              'Serial Number': chassis.attributes['SerialNum'],
+                              'Server Description': '',
+                              'Version': chassis.attributes['FirmwareVersion']})
+#        self._get_power_suppies(chassis.get_child('PhysicalChassisPowerSupplyStatus'))
+        for test_module in chassis.get_thin_inventory():
+            if test_module.get_attribute('Description'):
                 self._get_module(test_module)
+
+    def _get_power_suppies(self, power_supplies):
+        """ get power supplies resource and attributes. """
+        power_supply_list = power_supplies.get_list_attribute('PowerSupplyList')
+        power_supply_status_list = power_supplies.get_list_attribute('PowerSupplyStatusList')
+        for name, status in power_supply_list, power_supply_status_list:
+            if name.startswith('chs') and status != 'POWER_STATUS_NOT_PRESENT':
+                index = name.split('-')[1]
+                relative_address = index
+                AutoLoadResource(model='Generic Power Port', name='PP' + index,
+                                 relative_address=relative_address)
 
     def _get_module(self, module):
         """ Get module resource and attributes. """
 
         index = module.get_attribute('Index')
         relative_address = index
-        resource = AutoLoadResource(model='Generic Traffic Module', name='Slot ' + index,
+        resource = AutoLoadResource(model='Generic Traffic Generator Module', name='Module' + index,
                                     relative_address=relative_address)
         self.resources.append(resource)
         self._get_attributes(relative_address, module,
-                             {'Model': 'Model'})
+                             {'Model': 'Model',
+                              'Serial Number': 'SerialNum'})
         for port_group in module.get_children('PhysicalPortGroup'):
             self._get_port_group(relative_address, port_group)
 
@@ -86,7 +81,7 @@ class StcHandler(object):
 
         index = port_group.get_attribute('Index')
         relative_address = module_address + '/' + index
-        resource = AutoLoadResource(model='Generic Port Group', name='Port Group ' + index,
+        resource = AutoLoadResource(model='Generic Port Group', name='Port Group' + index,
                                     relative_address=relative_address)
         self.resources.append(resource)
         for port in port_group.get_children('PhysicalPort'):
@@ -97,7 +92,7 @@ class StcHandler(object):
 
         index = port.get_attribute('Index')
         relative_address = port_group_address + '/' + index
-        resource = AutoLoadResource(model='Generic Traffic Port', name='Port ' + index,
+        resource = AutoLoadResource(model='Generic Traffic Generator Port', name='Port' + index,
                                     relative_address=relative_address)
         self.resources.append(resource)
 

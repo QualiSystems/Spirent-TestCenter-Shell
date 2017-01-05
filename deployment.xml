@@ -22,25 +22,8 @@
             <sources>
                  <source>src</source>            
             </sources>
-            <targetName>StcShellDriver</targetName>
+            <targetName>TestCenterChassisDriver</targetName>
         </driver>
     </drivers>
 
-    <!-- The scripts to update, holds one or more scripts -->
-    <!-- A list of paths to the script's files or folders relative to the project's root.
- if the <sources> element is not specified, all the files under the project are added to the script's zip file.
- if only one file is specified, the file will not be compressed into a zip file.
- -->
-    <!--
-    <scripts>
-
-        <script>
-
-            <sources>
-                <source>script1.py</source>
-            </sources>
-            <targetName>scriptToUpdate</targetName>
-        </script>
-    </scripts>
-        -->
 </properties>

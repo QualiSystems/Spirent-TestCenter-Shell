@@ -2,6 +2,6 @@ shell:
     name: stc_shell
     author: Yoram Shamir
     email: yoram-s@quali.com
-    description: Spirent TestCenter (STC) shell
+    description: Spirent TestCenter (STC) chassis shell
     version: 1.0.1
-    driver_name: StcShellDriver
+    driver_name: TestCenterChassisDriver

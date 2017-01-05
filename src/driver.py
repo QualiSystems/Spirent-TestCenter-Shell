@@ -4,7 +4,7 @@ from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterf
 from stc_handler import StcHandler
 
 
-class StcShellDriver(ResourceDriverInterface):
+class TestCenterChassisDriver(ResourceDriverInterface):
 
     def __init__(self):
         self.handler = StcHandler()
