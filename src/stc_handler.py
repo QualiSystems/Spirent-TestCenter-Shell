@@ -2,7 +2,7 @@
 import logging
 
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
-
+from cloudshell.shell.core.session.cloudshell_session import CloudShellSessionContext
 from testcenter.stc_app import StcApp
 from testcenter.api.stc_tcl import StcTclWrapper
 
@@ -103,3 +103,28 @@ class StcHandler(object):
             self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
                                                      attribute_name=attribute_name,
                                                      attribute_value=stc_obj.get_attribute(attribute)))
+
+    def get_api(self,context):
+        """
+
+        :param context:
+        :return:
+        """
+
+        return CloudShellSessionContext(context).get_api()
+
+    def set_port_attribute(self,context,port_name):
+        """
+
+        :param context:
+        :param port_name: String example :'TestCenter Chassis 222/Module9/Port Group3/Port3':'TCP'
+        :return:
+        """
+        splited_name = port_name.split(":")
+        port_full_name = splited_name[0]
+        port_logic_name = splited_name[1]
+
+        my_api = self.get_api(context)
+        return my_api.SetAttributeValue(resourceFullPath=port_full_name, attributeName="Logical Name", attributeValue=port_logic_name)
+
+
