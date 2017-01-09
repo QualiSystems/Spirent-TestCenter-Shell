@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
   
-  	<Attributes>    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
+  	<Attributes>
+    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="The path in which the traffic client is installed on the Execution Server. For example 'C:/Program Files (x86)/Ixia/IxOS/6.90-EA'.">
       		<Rules>
         		<Rule Name="Configuration" />
@@ -13,12 +14,17 @@
         		<Rule Name="Configuration" />
       		</Rules>
     	</AttributeInfo>  	
-    	<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="The port's logical name in the test configuration. If kept emtpy automatic allocation will apply.">
-      		<Rules>
-        		<Rule Name="Configuration" />
-      		</Rules>
-    	</AttributeInfo>  	
+
+		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules Override="true">
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+
+
+
+
     	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="Interface media type. Possible values are Fiber and/or Copper (comma-separated).">
       		<Rules>
@@ -52,6 +58,7 @@
                 <Rule Name="Available For Abstract Resources"/>
             </Rules>
         </AttributeInfo>
+
     	<AttributeInfo Name="Supported Applications" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="Comma-separated list of traffic applications supported by this traffic generator. For example 'IxLoad,IxNetwork'.">
       		<Rules>

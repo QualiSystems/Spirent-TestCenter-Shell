@@ -28,6 +28,7 @@ class TestCenterChassisDriver(ResourceDriverInterface):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
         return self.handler.get_inventory(context)
-
+'''
     def set_port_logic_name(self,context,logic_names):
         return self.handler.set_port_attribute(context,logic_names)
+'''
