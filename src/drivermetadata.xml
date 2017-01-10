@@ -3,6 +3,7 @@
 	
     	<Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">
     	</Command>
+<<<<<<< Updated upstream
 
 		<Command Name="set_port_logic_name" DisplayName="Set Port Logic Name" Tags="" Description="Port logic name">
     	<Parameters>
@@ -13,6 +14,8 @@
 		</Parameters>
 
 		</Command>
+=======
+>>>>>>> Stashed changes
     
 	</Layout>
 </Driver>
