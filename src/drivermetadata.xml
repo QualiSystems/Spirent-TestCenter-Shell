@@ -3,7 +3,6 @@
 	
     	<Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">
     	</Command>
-
     
 	</Layout>
 </Driver>

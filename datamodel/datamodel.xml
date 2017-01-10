@@ -13,18 +13,13 @@
       		<Rules>
         		<Rule Name="Configuration" />
       		</Rules>
-    	</AttributeInfo>  	
-
+    	</AttributeInfo> 
 		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
          			   Description="">
             <Rules Override="true">
                 <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
-
-
-
-
     	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="Interface media type. Possible values are Fiber and/or Copper (comma-separated).">
       		<Rules>
@@ -58,7 +53,6 @@
                 <Rule Name="Available For Abstract Resources"/>
             </Rules>
         </AttributeInfo>
-
     	<AttributeInfo Name="Supported Applications" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="Comma-separated list of traffic applications supported by this traffic generator. For example 'IxLoad,IxNetwork'.">
       		<Rules>
