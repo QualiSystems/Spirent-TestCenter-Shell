@@ -1,3 +1,6 @@
+import logging
+logging.basicConfig()
+
 
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
 

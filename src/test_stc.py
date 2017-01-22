@@ -10,15 +10,15 @@ def create_context():
     context.resource = ResourceContextDetails()
     context.resource.name = 'TestCenter Controller 222'
     context.reservation = ReservationContextDetails()
-    context.reservation.reservation_id = '42f72fe8-b015-4548-a50e-6c62c3c517b1'
+    context.reservation.reservation_id = '42b088fd-3f24-4b94-9c72-6d5ba1c892bd'
     context.reservation.owner_user = 'admin'
     context.reservation.owner_email = 'fake@qualisystems.com'
-    context.reservation.environment_path ='admin_Environment-8-10-2016_13-58_29-09-2016_11-17-UTC'
-    context.reservation.environment_name = 'admin_Environment-8-10-2016_13-58_29-09-2016_11-17-UTC'
+    context.reservation.environment_path ='Environment-1-5-2017 16-19'
+    context.reservation.environment_name = 'Environment-1-5-2017 16-19'
     context.reservation.domain = 'Global'
     context.resource.attributes = {}
-    context.resource.attributes['Client Install Path'] = 'C://'
-    context.resource.address = '172.19.47.74'
+    context.resource.attributes['Client Install Path'] = 'C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.52'
+    context.resource.address = '10.254.7.84'
     return context
 
 
@@ -105,13 +105,13 @@ if __name__ == '__main__':
     #tftp://12.30.245.98/test/test.txt
     #res = driver.restore(context,'flash:/config_backup/vrpcfg.zip', 'startup', 'override')
     driver.initialize(context)
-    #response = driver.get_inventory(context)
+
     #response = driver.ApplyConnectivityChanges(context,request)
     #response = driver.restore(context, 'cfcard:/config_backup/vrpcfg.zip', 'startup', 'override')
     #response = driver.save(context, 'tftp://172.19.107.44/test', 'startup')
     #response = driver.restore(context, 'cfcard:/config_backup/vrpcfg.zip', 'startup', 'override')
     #res = driver.ApplyConnectivityChanges(context, request)
-    response = driver.set_port_logic_name(context,"TestCenter Chassis 222/Module9/Port Group3/Port3:TCP")
+    response = driver.get_inventory(context)
     print response
     #res=driver.update_firmware(context,'1.1.1.1','flash:/config_backup/')
     #print driver.send_custom_command(context, "display version")

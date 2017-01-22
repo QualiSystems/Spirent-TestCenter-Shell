@@ -8,12 +8,7 @@
         		<Rule Name="Configuration" />
       		</Rules>
     	</AttributeInfo>  	
-    	<AttributeInfo Name="Controller Group" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="The name of the controller group that the traffic generator is associated with or the group(s) (comma-separated) the traffic controller is part of.">
-      		<Rules>
-        		<Rule Name="Configuration" />
-      		</Rules>
-    	</AttributeInfo> 
+
 		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
          			   Description="">
             <Rules Override="true">

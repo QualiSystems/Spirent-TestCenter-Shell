@@ -17,9 +17,9 @@ class TestTestCenterChassisDriver(unittest.TestCase):
     def setUp(self):
         self.connectivity = ConnectivityContext(None, None, None, None)
         self.resource = ResourceContextDetails(None, None, None, None, None, None, None, None, None, None)
-        self.resource.address = '10.224.18.200'
+        self.resource.address = '10.254.7.84'
         self.resource.attributes = {'Client Install Path':
-                                    'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.70'}
+                                    'C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.52'}
         context = InitCommandContext(self.connectivity, self.resource)
         self.handler = StcHandler()
         self.handler.initialize(context)

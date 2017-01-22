@@ -7,7 +7,7 @@ from testcenter.stc_app import StcApp
 from testcenter.api.stc_tcl import StcTclWrapper
 
 import sys
-sys.path.append('E:/eclipse64/plugins/org.python.pydev_3.1.0.201312121632/pysrc')
+#sys.path.append('E:/eclipse64/plugins/org.python.pydev_3.1.0.201312121632/pysrc')
 
 
 class StcHandler(object):
