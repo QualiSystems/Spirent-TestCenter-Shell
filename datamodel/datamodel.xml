@@ -28,6 +28,13 @@
 	       		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
+        <AttributeInfo Name="Module Description" Type="String" DefaultValue="" IsReadOnly="true"
+        			   Description="The description of the module as configured in the device.">
+            <Rules Override="false">
+                <Rule Name="Setting"/>
+                <Rule Name="Available For Abstract Resources"/>
+            </Rules>
+        </AttributeInfo>
         <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true"
         			   Description="The description of the port as configured in the device.">
             <Rules Override="false">
@@ -124,6 +131,9 @@
 	        	<ResourceModel Name="Generic Traffic Generator Module" Description="Generic Traffic Generator Module" SupportsConcurrentCommands="false">
 					<AttachedAttributes>
         				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+        				<AttachedAttribute Name="Module Description" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
                         <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">

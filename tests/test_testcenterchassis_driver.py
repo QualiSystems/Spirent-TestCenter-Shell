@@ -11,7 +11,7 @@ from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceC
 from src.stc_handler import StcHandler
 
 address = '10.224.18.200'
-client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.70'
+client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71'
 
 
 class TestTestCenterChassisDriver(unittest.TestCase):
@@ -29,10 +29,12 @@ class TestTestCenterChassisDriver(unittest.TestCase):
         pass
 
     def testAutoload(self):
-        autoload = self.handler.get_inventory(self.context)
-        for resource in autoload.resources:
-            print resource.name
-        pass
+        context = InitCommandContext(self.connectivity, self.resource)
+        inventory = self.handler.get_inventory(context)
+        for r in inventory.resources:
+            print r.relative_address, r.model, r.name
+        for a in inventory.attributes:
+            print a.relative_address, a.attribute_name, a.attribute_value
 
 
 if __name__ == '__main__':

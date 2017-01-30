@@ -6,9 +6,6 @@ from cloudshell.shell.core.session.cloudshell_session import CloudShellSessionCo
 from testcenter.stc_app import StcApp
 from testcenter.api.stc_tcl import StcTclWrapper
 
-import sys
-#sys.path.append('E:/eclipse64/plugins/org.python.pydev_3.1.0.201312121632/pysrc')
-
 
 class StcHandler(object):
 
@@ -68,6 +65,7 @@ class StcHandler(object):
         self.resources.append(resource)
         self._get_attributes(relative_address,
                              {'Model': module.attributes['Model'],
+                              'Module Description': module.attributes['Description'],
                               'Serial Number': module.attributes['SerialNum']})
         for port_group in module.pgs.values():
             self._get_port_group(relative_address, port_group)
