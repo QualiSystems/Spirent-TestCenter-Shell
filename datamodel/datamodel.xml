@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
   
-  	<Attributes>    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
+  	<Attributes>
+    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="The path in which the traffic client is installed on the Execution Server. For example 'C:/Program Files (x86)/Ixia/IxOS/6.90-EA'.">
       		<Rules>
         		<Rule Name="Configuration" />
       		</Rules>
     	</AttributeInfo>  	
-    	<AttributeInfo Name="Controller Group" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="The name of the controller group that the traffic generator is associated with or the group(s) (comma-separated) the traffic controller is part of.">
-      		<Rules>
-        		<Rule Name="Configuration" />
-      		</Rules>
-    	</AttributeInfo>  	
-    	<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="The port's logical name in the test configuration. If kept emtpy automatic allocation will apply.">
-      		<Rules>
-        		<Rule Name="Configuration" />
-      		</Rules>
-    	</AttributeInfo>  	
+
+		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules Override="true">
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
     	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="Interface media type. Possible values are Fiber and/or Copper (comma-separated).">
       		<Rules>
@@ -32,6 +28,13 @@
 	       		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
+        <AttributeInfo Name="Module Description" Type="String" DefaultValue="" IsReadOnly="true"
+        			   Description="The description of the module as configured in the device.">
+            <Rules Override="false">
+                <Rule Name="Setting"/>
+                <Rule Name="Available For Abstract Resources"/>
+            </Rules>
+        </AttributeInfo>
         <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true"
         			   Description="The description of the port as configured in the device.">
             <Rules Override="false">
@@ -128,6 +131,9 @@
 	        	<ResourceModel Name="Generic Traffic Generator Module" Description="Generic Traffic Generator Module" SupportsConcurrentCommands="false">
 					<AttachedAttributes>
         				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+        				<AttachedAttribute Name="Module Description" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
                         <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
