@@ -10,6 +10,7 @@ def create_context():
     context.resource = ResourceContextDetails()
     context.resource.name = 'TestCenter Controller 222'
     context.reservation = ReservationContextDetails()
+
     context.reservation.reservation_id = '42b088fd-3f24-4b94-9c72-6d5ba1c892bd'
     context.reservation.owner_user = 'admin'
     context.reservation.owner_email = 'fake@qualisystems.com'
@@ -19,6 +20,7 @@ def create_context():
     context.resource.attributes = {}
     context.resource.attributes['Client Install Path'] = 'C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.52'
     context.resource.address = '10.254.7.84'
+
     return context
 
 
@@ -106,12 +108,9 @@ if __name__ == '__main__':
     #res = driver.restore(context,'flash:/config_backup/vrpcfg.zip', 'startup', 'override')
     driver.initialize(context)
 
-    #response = driver.ApplyConnectivityChanges(context,request)
-    #response = driver.restore(context, 'cfcard:/config_backup/vrpcfg.zip', 'startup', 'override')
-    #response = driver.save(context, 'tftp://172.19.107.44/test', 'startup')
-    #response = driver.restore(context, 'cfcard:/config_backup/vrpcfg.zip', 'startup', 'override')
-    #res = driver.ApplyConnectivityChanges(context, request)
+
     response = driver.get_inventory(context)
+
     print response
     #res=driver.update_firmware(context,'1.1.1.1','flash:/config_backup/')
     #print driver.send_custom_command(context, "display version")
