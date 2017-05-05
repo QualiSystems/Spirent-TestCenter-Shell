@@ -9,7 +9,8 @@
         <Attributes>
             <Attribute Name="Client Install Path" Value="" />
             <Attribute Name="Power Management" Value="" />
-            <Attribute Name="Supported Applications" Value="" />
+            <Attribute Name="Controller Address" Value="" />
+            <Attribute Name="Controller TCP Port" Value="" />
         </Attributes>
     	</ResourceTemplate>
 	</ResourceTemplates>

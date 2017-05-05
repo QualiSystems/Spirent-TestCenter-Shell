@@ -15,10 +15,12 @@ class StcHandler(object):
         """
 
         client_install_path = context.resource.attributes['Client Install Path']
+        controller = context.resource.attributes['Controller Address']
+        lab_server = controller if controller else None
         self.logger = logging.getLogger('log')
         self.logger.setLevel('DEBUG')
         self.stc = StcApp(self.logger, StcTclWrapper(self.logger, client_install_path))
-        self.stc.connect()
+        self.stc.connect(lab_server)
 
     def get_inventory(self, context):
         """ Return device structure with all standard attributes

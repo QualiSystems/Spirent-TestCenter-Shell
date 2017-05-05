@@ -1,4 +1,4 @@
-<Driver Description="Autoload driver for Spirent TestCenter chassis" MainClass="driver.TestCenterChassisDriver" Name="TestCenterChassisDriver" Version="1.1.0">
+<Driver Description="Autoload driver for Spirent TestCenter chassis" MainClass="driver.TestCenterChassisDriver" Name="TestCenterChassisDriver" Version="1.0.1">
     <Layout>
 	
     	<Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">

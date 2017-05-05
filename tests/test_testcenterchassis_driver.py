@@ -10,8 +10,9 @@ import unittest
 from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceContextDetails, InitCommandContext)
 from src.stc_handler import StcHandler
 
-address = '10.224.18.200'
+address = '192.168.42.165'
 client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71'
+controller = '192.168.42.158'
 
 
 class TestTestCenterChassisDriver(unittest.TestCase):
@@ -20,7 +21,8 @@ class TestTestCenterChassisDriver(unittest.TestCase):
         self.connectivity = ConnectivityContext(None, None, None, None)
         self.resource = ResourceContextDetails(None, None, None, None, None, None, None, None, None, None)
         self.resource.address = address
-        self.resource.attributes = {'Client Install Path': client_install_path}
+        self.resource.attributes = {'Client Install Path': client_install_path,
+                                    'Controller Address': controller}
         self.context = InitCommandContext(self.connectivity, self.resource)
         self.handler = StcHandler()
         self.handler.initialize(self.context)
