@@ -1,5 +1,5 @@
 shell:
-    name: stc_shell
+    name: stc_chassis_shell
     author: Yoram Shamir
     email: yoram-s@quali.com
     description: Spirent TestCenter (STC) chassis shell

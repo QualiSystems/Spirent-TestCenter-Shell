@@ -9,9 +9,13 @@
         		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
             		<AllowedValues />
           		</AttachedAttribute>
-            	<AttachedAttribute Name="Controller Group" IsOverridable="true" IsLocal="true">
+        		<AttachedAttribute Name="Controller Address" IsOverridable="true" IsLocal="true">
             		<AllowedValues />
-            	</AttachedAttribute>
+          		</AttachedAttribute>
+        		<AttachedAttribute Name="Controller TCP Port" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+          		</AttachedAttribute>
+
             	<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
                 	<AllowedValues />
            		</AttachedAttribute>
@@ -24,9 +28,6 @@
             	<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
             		<AllowedValues />
             	</AttachedAttribute>
-            	<AttachedAttribute Name="Supported Applications" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-        		</AttachedAttribute>
             	<AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
   					<AllowedValues />
            		</AttachedAttribute>
