@@ -13,6 +13,7 @@ from src.stc_handler import StcHandler
 address = '192.168.42.165'
 client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71'
 controller = '192.168.42.158'
+controller = ''
 
 
 class TestTestCenterChassisDriver(unittest.TestCase):

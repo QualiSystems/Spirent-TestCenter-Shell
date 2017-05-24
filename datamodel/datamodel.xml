@@ -9,7 +9,7 @@
       		</Rules>
     	</AttributeInfo>
     	<AttributeInfo Name="Controller Address" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="The TCP port of the traffic server. Relevant only in case an external server is configured.">
+    				   Description="The IP address of the traffic server. Relevant only in case an external server is configured.">
       		<Rules>
         		<Rule Name="Configuration" />
       		</Rules>
@@ -26,6 +26,12 @@
                 <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
+    	<AttributeInfo Name="Max Speed" Type="String" DefaultValue="1000" IsReadOnly="true"
+    				   Description="Max speed supported by the interface (default units - MB).">
+      		<Rules>
+        		<Rule Name="Configuration" />
+      		</Rules>
+    	</AttributeInfo>
     	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="Interface media type. Possible values are Fiber and/or Copper (comma-separated).">
       		<Rules>
@@ -39,11 +45,10 @@
 	       		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
-        <AttributeInfo Name="Module Description" Type="String" DefaultValue="" IsReadOnly="true"
-        			   Description="The description of the module as configured in the device.">
-            <Rules Override="false">
-                <Rule Name="Setting"/>
-                <Rule Name="Available For Abstract Resources"/>
+        <AttributeInfo Name="Password" Type="Password" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules>
+                <Rule Name="Configuration"/>
             </Rules>
         </AttributeInfo>
         <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true"
@@ -66,12 +71,6 @@
                 <Rule Name="Available For Abstract Resources"/>
             </Rules>
         </AttributeInfo>
-    	<AttributeInfo Name="Supported Speed" Type="Numeric" DefaultValue="1000" IsReadOnly="true"
-    				   Description="Max speed (in MB)supported by the interface.">
-      		<Rules>
-        		<Rule Name="Configuration" />
-      		</Rules>
-    	</AttributeInfo>
     	<AttributeInfo Name="Server Description" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The full description of the server. Usually includes the OS, exact firmware version and additional characteritics of the device.">
       		<Rules Override="false">
@@ -79,15 +78,21 @@
 	     		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
-    	<AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true"
-    				   Description="The firmware version of the resource.">
-      		<Rules Override="false">
-	     		<Rule Name="Setting" />
+    	<AttributeInfo Name="Supported Applications" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="Comma-separated list of traffic applications supported by this traffic generator. For example 'IxLoad, IxNetwork'.">
+      		<Rules>
+        		<Rule Name="Configuration" />
 	     		<Rule Name="Available For Abstract Resources" />
       		</Rules>
-    	</AttributeInfo>
-		<AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
-					   Description="Vendor name.">
+    	</AttributeInfo>    	
+        <AttributeInfo Name="User" Type="String" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+    	<AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true"
+    				   Description="The firmware version of the resource.">
       		<Rules Override="false">
 	     		<Rule Name="Setting" />
 	     		<Rule Name="Available For Abstract Resources" />

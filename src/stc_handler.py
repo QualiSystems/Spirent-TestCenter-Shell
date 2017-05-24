@@ -14,11 +14,13 @@ class StcHandler(object):
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
 
+        self.logger = logging.getLogger('log')
+        self.logger.setLevel(logging.DEBUG)
+        self.logger.addHandler(logging.FileHandler('c:/temp/stc_chassis_shell.log'))
+
         client_install_path = context.resource.attributes['Client Install Path']
         controller = context.resource.attributes['Controller Address']
         lab_server = controller if controller else None
-        self.logger = logging.getLogger('log')
-        self.logger.setLevel('DEBUG')
         self.stc = StcApp(self.logger, StcTclWrapper(self.logger, client_install_path))
         self.stc.connect(lab_server)
 
@@ -41,9 +43,6 @@ class StcHandler(object):
     def _get_chassis(self, chassis):
         """ Get chassis resource and attributes. """
 
-        self.attributes.append(AutoLoadAttribute(relative_address='',
-                                                 attribute_name='Vendor',
-                                                 attribute_value='Spirent'))
         self._get_attributes('',
                              {'Model': chassis.attributes['Model'],
                               'Serial Number': chassis.attributes['SerialNum'],
@@ -89,6 +88,8 @@ class StcHandler(object):
         resource = AutoLoadResource(model='Generic Traffic Generator Port', name='Port' + port.attributes['Index'],
                                     relative_address=relative_address)
         self.resources.append(resource)
+        self._get_attributes(relative_address,
+                             {'Supported Speed': port.attributes['Speed']})
 
     def _get_power_supply(self, power_supply):
         """ get power supplies resource and attributes. """
