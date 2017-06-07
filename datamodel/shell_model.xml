@@ -22,7 +22,13 @@
                 <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
                     <AllowedValues/>
                 </AttachedAttribute>
-                <AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
+                <AttachedAttribute Name="Server Description" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Supported Applications" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
                     <AllowedValues/>
                 </AttachedAttribute>
                 <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">

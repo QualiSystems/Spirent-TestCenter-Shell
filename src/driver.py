@@ -1,6 +1,3 @@
-import logging
-logging.basicConfig()
-
 
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
 
@@ -17,10 +14,7 @@ class TestCenterChassisDriver(ResourceDriverInterface):
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
         self.handler.initialize(context)
-        return 'Finished initializing'
 
-    # Destroy the driver session, this function is called every time a driver instance is destroyed
-    # This is a good place to close any open sessions, finish writing to log files
     def cleanup(self):
         pass
 
