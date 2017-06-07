@@ -1,44 +1,43 @@
 <Shell>
-
 	<ShellAttributes>
 	</ShellAttributes>
-
     <ShellModel Family="Traffic Generator Chassis">
         <ResourceModel Name="TestCenter Chassis" Description="Spirent TestCenter (STC) chassis" SupportsConcurrentCommands="false">
-    		<AttachedAttributes>
-        		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-        		<AttachedAttribute Name="Controller Address" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-        		<AttachedAttribute Name="Controller TCP Port" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-
-            	<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-                	<AllowedValues />
-           		</AttachedAttribute>
-            	<AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-	          	<AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
-                	<AllowedValues/>
-             	</AttachedAttribute>
-            	<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-            	<AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
-  					<AllowedValues />
-           		</AttachedAttribute>
-            	<AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-      		</AttachedAttributes>
+            <AttachedAttributes>
+                <AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Controller Address" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Controller TCP Port" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Server Description" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Supported Applications" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+                <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
+                    <AllowedValues/>
+                </AttachedAttribute>
+            </AttachedAttributes>
             <Drivers>
                 <DriverName>TestCenterChassisDriver</DriverName>
             </Drivers>
         </ResourceModel>
     </ShellModel>
-
 </Shell>

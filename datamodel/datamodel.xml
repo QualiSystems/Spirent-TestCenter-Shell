@@ -9,7 +9,7 @@
       		</Rules>
     	</AttributeInfo>
     	<AttributeInfo Name="Controller Address" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="The TCP port of the traffic server. Relevant only in case an external server is configured.">
+    				   Description="The IP address of the traffic server. Relevant only in case an external server is configured.">
       		<Rules>
         		<Rule Name="Configuration" />
       		</Rules>
@@ -21,36 +21,43 @@
       		</Rules>
     	</AttributeInfo>
 		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
-         			   Description="">
+         			   Description="The port's logical name in the test configuration. If kept emtpy - allocation will applied in the blue print.">
             <Rules Override="true">
                 <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
-    	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="false"
+    	<AttributeInfo Name="Max Speed" Type="String" DefaultValue="1000" IsReadOnly="true"
+    				   Description="Max speed supported by the interface (default units - MB).">
+      		<Rules>
+	       		<Rule Name="Available For Abstract Resources" />
+        		<Rule Name="Setting" />
+      		</Rules>
+    	</AttributeInfo>
+    	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="Interface media type. Possible values are Fiber and/or Copper (comma-separated).">
       		<Rules>
-        		<Rule Name="Configuration" />
+	       		<Rule Name="Available For Abstract Resources" />
+        		<Rule Name="Setting" />
       		</Rules>
     	</AttributeInfo>
     	<AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The device model. This information is typically used for abstract resource filtering.">
       		<Rules Override="false">
-      			<Rule Name="Setting" />
 	       		<Rule Name="Available For Abstract Resources" />
+      			<Rule Name="Setting" />
       		</Rules>
     	</AttributeInfo>
-        <AttributeInfo Name="Module Description" Type="String" DefaultValue="" IsReadOnly="true"
-        			   Description="The description of the module as configured in the device.">
-            <Rules Override="false">
-                <Rule Name="Setting"/>
-                <Rule Name="Available For Abstract Resources"/>
+        <AttributeInfo Name="Password" Type="Password" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules>
+                <Rule Name="Configuration"/>
             </Rules>
         </AttributeInfo>
         <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true"
         			   Description="The description of the port as configured in the device.">
             <Rules Override="false">
-                <Rule Name="Setting"/>
                 <Rule Name="Available For Abstract Resources"/>
+                <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
 	    <AttributeInfo Name="Power Management" Type="Boolean" DefaultValue="False" IsReadOnly="false"
@@ -60,37 +67,46 @@
       		</Rules>
     	</AttributeInfo>
         <AttributeInfo Name="Serial Number" Type="String" DefaultValue="" IsReadOnly="true"
-         			   Description="">
+         			   Description="The serial number of the resource.">
             <Rules Override="false">
-                <Rule Name="Setting"/>
                 <Rule Name="Available For Abstract Resources"/>
+                <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
-    	<AttributeInfo Name="Supported Speed" Type="Numeric" DefaultValue="1000" IsReadOnly="true"
-    				   Description="Max speed (in MB)supported by the interface.">
-      		<Rules>
-        		<Rule Name="Configuration" />
-      		</Rules>
-    	</AttributeInfo>
     	<AttributeInfo Name="Server Description" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The full description of the server. Usually includes the OS, exact firmware version and additional characteritics of the device.">
       		<Rules Override="false">
-	     		<Rule Name="Setting" />
 	     		<Rule Name="Available For Abstract Resources" />
+	     		<Rule Name="Setting" />
       		</Rules>
     	</AttributeInfo>
+    	<AttributeInfo Name="Supported Applications" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="Comma-separated list of traffic applications supported by this traffic generator. For example 'IxLoad, IxNetwork'.">
+      		<Rules>
+      			<Rule Name="Admin Only" />
+	     		<Rule Name="Available For Abstract Resources" />
+        		<Rule Name="Configuration" />
+	     		<Rule Name="Setting" />
+      		</Rules>
+    	</AttributeInfo>    	
+        <AttributeInfo Name="User" Type="String" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
+         			   Description="The name of the device manufacture.">
+            <Rules Override="false">
+                <Rule Name="Available For Abstract Resources"/>
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>        
     	<AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The firmware version of the resource.">
       		<Rules Override="false">
-	     		<Rule Name="Setting" />
 	     		<Rule Name="Available For Abstract Resources" />
-      		</Rules>
-    	</AttributeInfo>
-		<AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
-					   Description="Vendor name.">
-      		<Rules Override="false">
 	     		<Rule Name="Setting" />
-	     		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
  	</Attributes>
@@ -123,6 +139,7 @@
                     </AttachedAttributes>
                     <ParentModels>
 						<ParentModelName>TestCenter Chassis</ParentModelName>
+						<ParentModelName>Generic Traffic Generator Module</ParentModelName>
                     </ParentModels>
                     <Drivers/>
                     <Scripts/>
@@ -138,10 +155,10 @@
         				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
-        				<AttachedAttribute Name="Module Description" IsOverridable="true" IsLocal="true">
-            				<AllowedValues />
-          				</AttachedAttribute>
                         <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
                             <AllowedValues/>
                         </AttachedAttribute>
 					</AttachedAttributes>
@@ -158,7 +175,6 @@
 			<Models>
 	        	<ResourceModel Name="Generic Port Group" Description="Generic Port Group" SupportsConcurrentCommands="false">
 					<ParentModels>
-						<ParentModelName>TestCenter Chassis</ParentModelName>
 						<ParentModelName>Generic Traffic Generator Module</ParentModelName>
 					</ParentModels>
         		</ResourceModel>
@@ -170,13 +186,10 @@
       		<Models>
 				<ResourceModel Name="Generic Traffic Generator Port" Description="Generaic Traffic Generator Port" SupportsConcurrentCommands="false">
     				<AttachedAttributes>
-        				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-            				<AllowedValues />
-          				</AttachedAttribute>
         				<AttachedAttribute Name="Media Type" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
-        				<AttachedAttribute Name="Supported Speed" IsOverridable="true" IsLocal="true">
+        				<AttachedAttribute Name="Max Speed" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
         				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
@@ -184,7 +197,6 @@
           				</AttachedAttribute>
       				</AttachedAttributes>
 					<ParentModels>
-						<ParentModelName>TestCenter Chassis</ParentModelName>
 						<ParentModelName>Generic Traffic Generator Module</ParentModelName>
 						<ParentModelName>Generic Port Group</ParentModelName>
 					</ParentModels>

@@ -1,13 +1,22 @@
 
+import sys
 import logging
 
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
 from cloudshell.shell.core.session.cloudshell_session import CloudShellSessionContext
+
 from testcenter.stc_app import StcApp
 from testcenter.api.stc_tcl import StcTclWrapper
 
 
 class StcHandler(object):
+
+    def __init__(self):
+
+        self.logger = logging.getLogger('log')
+        self.logger.addHandler(logging.FileHandler('c:/temp/stc_chassis_shell.log'))
+        self.logger.addHandler(logging.StreamHandler(sys.stdout))
+        self.logger.setLevel(logging.DEBUG)
 
     def initialize(self, context):
         """
@@ -17,8 +26,6 @@ class StcHandler(object):
         client_install_path = context.resource.attributes['Client Install Path']
         controller = context.resource.attributes['Controller Address']
         lab_server = controller if controller else None
-        self.logger = logging.getLogger('log')
-        self.logger.setLevel('DEBUG')
         self.stc = StcApp(self.logger, StcTclWrapper(self.logger, client_install_path))
         self.stc.connect(lab_server)
 
@@ -41,13 +48,11 @@ class StcHandler(object):
     def _get_chassis(self, chassis):
         """ Get chassis resource and attributes. """
 
-        self.attributes.append(AutoLoadAttribute(relative_address='',
-                                                 attribute_name='Vendor',
-                                                 attribute_value='Spirent'))
         self._get_attributes('',
                              {'Model': chassis.attributes['Model'],
                               'Serial Number': chassis.attributes['SerialNum'],
                               'Server Description': '',
+                              'Vendor': 'Spirent',
                               'Version': chassis.attributes['FirmwareVersion']})
 
         for module in chassis.modules.values():
@@ -67,8 +72,8 @@ class StcHandler(object):
         self.resources.append(resource)
         self._get_attributes(relative_address,
                              {'Model': module.attributes['Model'],
-                              'Module Description': module.attributes['Description'],
-                              'Serial Number': module.attributes['SerialNum']})
+                              'Serial Number': module.attributes['SerialNum'],
+                              'Version': module.attributes['FirmwareVersion']})
         for port_group in module.pgs.values():
             self._get_port_group(relative_address, port_group)
 
@@ -89,6 +94,10 @@ class StcHandler(object):
         resource = AutoLoadResource(model='Generic Traffic Generator Port', name='Port' + port.attributes['Index'],
                                     relative_address=relative_address)
         self.resources.append(resource)
+        max_speed = self._get_max_speed(port.obj_parent().obj_parent().attributes['SupportedSpeeds'])
+        self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
+                                                 attribute_name='Max Speed',
+                                                 attribute_value=max_speed))
 
     def _get_power_supply(self, power_supply):
         """ get power supplies resource and attributes. """
@@ -106,15 +115,6 @@ class StcHandler(object):
                                                      attribute_name=attribute_name,
                                                      attribute_value=attribute_value))
 
-    def get_api(self, context):
-        """
-
-        :param context:
-        :return:
-        """
-
-        return CloudShellSessionContext(context).get_api()
-
     def set_port_attribute(self, context, port_name):
         """
 
@@ -126,6 +126,11 @@ class StcHandler(object):
         port_full_name = splited_name[0]
         port_logic_name = splited_name[1]
 
-        my_api = self.get_api(context)
+        my_api = CloudShellSessionContext(context).get_api()
         return my_api.SetAttributeValue(resourceFullPath=port_full_name, attributeName="Logical Name",
                                         attributeValue=port_logic_name)
+
+    def _get_max_speed(self, supported_speeds):
+        num_speeds = list(float(s[:-1])*1000 if s[-1] == 'M' else float(s[:-1])*1000*1000 for s in supported_speeds)
+        max_speed = max(zip(num_speeds, supported_speeds))
+        return max_speed[1]

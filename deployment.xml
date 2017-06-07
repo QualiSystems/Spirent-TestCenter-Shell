@@ -13,7 +13,7 @@
     <domain>Global</domain>
 
     <!-- Simple patterns to filter when sending the driver to the server separated by semicolons (e.g. "file.xml;logs/", also supports regular expressions),
- on top of the patterns specified here the plugin will automatically filter the "deployment/" and ".idea/" folders and the "deployment.xml" file -->
+ 		 on top of the patterns specified here the plugin will automatically filter the "deployment/" and ".idea/" folders and the "deployment.xml" file -->
     <fileFilters>dont_upload_me.xml</fileFilters>
 
     <!-- The drivers to update, holds one or more drivers -->
@@ -22,7 +22,7 @@
             <sources>
                  <source>src</source>            
             </sources>
-            <targetName>TestCenterChassisDriver</targetName>
+            <targetName>TestCenter Chassis Driver</targetName>
         </driver>
     </drivers>
 

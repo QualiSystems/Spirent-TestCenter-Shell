@@ -1,21 +1,6 @@
-<Driver Description="Autoload driver for Spirent TestCenter chassis" MainClass="driver.TestCenterChassisDriver" Name="TestCenterChassisDriver" Version="1.0.1">
+<Driver Description="TestCenter Chassis Driver" MainClass="driver.TestCenterChassisDriver" Name="TestCenter Chassis Driver" Version="1.1.0">
     <Layout>
-	
-    	<Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">
-    	</Command>
-<<<<<<< Updated upstream
-
-		<Command Name="set_port_logic_name" DisplayName="Set Port Logic Name" Tags="" Description="Port logic name">
-    	<Parameters>
-
-			<Parameter Name="logic_names" Type="String" Mandatory="False"
-					   DisplayName="Get Ports From Config" DefaultValue="False" Description="Example physical:logical" />
-
-		</Parameters>
-
-		</Command>
-=======
->>>>>>> Stashed changes
-    
-	</Layout>
+        <Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">
+        </Command>
+    </Layout>
 </Driver>
