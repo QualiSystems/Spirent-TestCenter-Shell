@@ -1,7 +1,4 @@
 
-import sys
-import logging
-
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
 from cloudshell.shell.core.session.cloudshell_session import CloudShellSessionContext
 
@@ -11,17 +8,12 @@ from testcenter.api.stc_tcl import StcTclWrapper
 
 class StcHandler(object):
 
-    def __init__(self):
-
-        self.logger = logging.getLogger('log')
-        self.logger.addHandler(logging.FileHandler('c:/temp/stc_chassis_shell.log'))
-        self.logger.addHandler(logging.StreamHandler(sys.stdout))
-        self.logger.setLevel(logging.DEBUG)
-
-    def initialize(self, context):
+    def initialize(self, context, logger):
         """
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
+
+        self.logger = logger
 
         client_install_path = context.resource.attributes['Client Install Path']
         controller = context.resource.attributes['Controller Address']

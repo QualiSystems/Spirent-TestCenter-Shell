@@ -1,6 +1,8 @@
 
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
 
+from cloudshell.traffic import tg_helper
+
 from stc_handler import StcHandler
 
 
@@ -13,7 +15,8 @@ class TestCenterChassisDriver(ResourceDriverInterface):
         """
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
-        self.handler.initialize(context)
+        self.logger = tg_helper.get_logger(context)
+        self.handler.initialize(context, self.logger)
 
     def cleanup(self):
         pass
@@ -25,9 +28,3 @@ class TestCenterChassisDriver(ResourceDriverInterface):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
         return self.handler.get_inventory(context)
-<<<<<<< Updated upstream
-
-    def set_port_logic_name(self,context,logic_names):
-        return self.handler.set_port_attribute(context,logic_names)
-=======
->>>>>>> Stashed changes

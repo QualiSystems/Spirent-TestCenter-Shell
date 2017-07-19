@@ -3,6 +3,7 @@
 	<name>Spirent-TestCenterChassis-Shell</name>
 	<comment></comment>
 	<projects>
+		<project>CloudShell-Traffic</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
