@@ -1,6 +1,4 @@
 cloudshell-shell-core>=3.1,<3.2
-cloudshell-automation-api>=8.1,<8.2
-cloudshell-traffic>=0.9.9.5
-future==0.16.0
-tgnooapi==0.9.6.2
-stcooapi==0.9.7
+cloudshell-automation-api>=7.0,<7.1
+cloudshell-traffic>=0.9.9.8
+stcooapi==0.9.11

@@ -10,12 +10,14 @@ import logging
 import unittest
 
 from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceContextDetails, InitCommandContext)
+
 from src.driver import TestCenterChassisDriver
 
+client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.52'
 address = '192.168.42.159'
-client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71'
-controller = ''
+address = '10.26.4.151'
 controller = '192.168.42.156'
+controller = ''
 
 
 class TestTestCenterChassisDriver(unittest.TestCase):
@@ -36,10 +38,10 @@ class TestTestCenterChassisDriver(unittest.TestCase):
         pass
 
     def testAutoload(self):
-        inventory = self.driver.get_inventory(self.context)
-        for r in inventory.resources:
+        self.inventory = self.driver.get_inventory(self.context)
+        for r in self.inventory.resources:
             print r.relative_address, r.model, r.name
-        for a in inventory.attributes:
+        for a in self.inventory.attributes:
             print a.relative_address, a.attribute_name, a.attribute_value
 
 
