@@ -15,8 +15,8 @@ from src.driver import TestCenterChassisDriver
 
 client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.52'
 address = '192.168.42.159'
-address = '10.26.4.151'
 controller = '192.168.42.156'
+address = '10.26.4.151'
 controller = ''
 
 
