@@ -13,11 +13,12 @@ from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceC
 
 from src.driver import TestCenterChassisDriver
 
-client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.52'
-address = '192.168.42.159'
+client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.66'
 controller = '192.168.42.156'
-address = '10.26.4.151'
 controller = ''
+address = '10.26.4.151'
+address = '192.168.42.159'
+address = '192.168.42.160'
 
 
 class TestTestCenterChassisDriver(unittest.TestCase):
