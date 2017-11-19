@@ -4,4 +4,4 @@ shell:
   driver_name: TestCenterChassisDriver
   email: yoram-s@quali.com
   name: stc_chassis_shell
-  version: 1.2.5
+  version: 1.2.7

@@ -9,11 +9,11 @@ import sys
 import logging
 import unittest
 
-from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceContextDetails, InitCommandContext)
+from shellfoundry.releasetools.test_helper import create_autoload_context
 
 from src.driver import TestCenterChassisDriver
 
-client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.66'
+client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71'
 controller = '192.168.42.156'
 controller = ''
 address = '10.26.4.151'
@@ -21,15 +21,10 @@ address = '192.168.42.159'
 address = '192.168.42.160'
 
 
-class TestTestCenterChassisDriver(unittest.TestCase):
+class TestStcChassisDriver(unittest.TestCase):
 
     def setUp(self):
-        connectivity = ConnectivityContext(None, None, None, None)
-        resource = ResourceContextDetails('testing', None, None, None, None, None, None, None, None, None)
-        resource.address = address
-        resource.attributes = {'Client Install Path': client_install_path,
-                               'Controller Address': controller}
-        self.context = InitCommandContext(connectivity, resource)
+        self.context = create_autoload_context(address, client_install_path, controller, '')
         self.driver = TestCenterChassisDriver()
         self.driver.initialize(self.context)
         print self.driver.logger.handlers[0].baseFilename

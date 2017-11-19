@@ -2,8 +2,8 @@
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
 from cloudshell.shell.core.session.cloudshell_session import CloudShellSessionContext
 
-from testcenter.stc_app import StcApp
-from testcenter.api.stc_tcl import StcTclWrapper
+from trafficgenerator.tgn_utils import ApiType
+from testcenter.stc_app import init_stc
 
 
 class StcHandler(object):
@@ -18,7 +18,7 @@ class StcHandler(object):
         client_install_path = context.resource.attributes['Client Install Path']
         controller = context.resource.attributes['Controller Address']
         lab_server = controller if controller else None
-        self.stc = StcApp(self.logger, StcTclWrapper(self.logger, client_install_path))
+        self.stc = init_stc(ApiType.tcl, self.logger, client_install_path, lab_server)
         self.stc.connect(lab_server)
 
     def get_inventory(self, context):
@@ -123,6 +123,5 @@ class StcHandler(object):
                                         attributeValue=port_logic_name)
 
     def _get_max_speed(self, supported_speeds):
-        num_speeds = list(float(s[:-1])*1000 if s[-1] == 'M' else float(s[:-1])*1000*1000 for s in supported_speeds)
-        max_speed = max(zip(num_speeds, supported_speeds))
-        return max_speed[1]
+        mb_speeds = list(float(s[:-1]) if s[-1] == 'M' else float(s[:-1])*1000 for s in supported_speeds)
+        return str(int(max(mb_speeds)))

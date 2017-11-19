@@ -23,6 +23,7 @@
 		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
          			   Description="The port's logical name in the test configuration. If kept emtpy - allocation will applied in the blue print.">
             <Rules Override="true">
+	       		<Rule Name="Available For Abstract Resources" />
                 <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
