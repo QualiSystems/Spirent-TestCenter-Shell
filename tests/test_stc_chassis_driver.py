@@ -9,21 +9,20 @@ import sys
 import logging
 import unittest
 
-from shellfoundry.releasetools.test_helper import create_autoload_context
+from shellfoundry.releasetools.test_helper import create_session_from_cloudshell_config, create_autoload_context
 
 from src.driver import TestCenterChassisDriver
 
 client_install_path = 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71'
-controller = '192.168.42.156'
+controller = '192.168.42.182'
 controller = ''
-address = '10.26.4.151'
-address = '192.168.42.159'
-address = '192.168.42.160'
+address = '192.168.42.218'
 
 
 class TestStcChassisDriver(unittest.TestCase):
 
     def setUp(self):
+        self.session = create_session_from_cloudshell_config()
         self.context = create_autoload_context(address, client_install_path, controller, '')
         self.driver = TestCenterChassisDriver()
         self.driver.initialize(self.context)

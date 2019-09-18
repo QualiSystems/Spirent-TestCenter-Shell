@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Tests for `IxiaShellDriver`
+Tests for `STCShellDriver`
 """
 
 import sys
@@ -11,22 +11,22 @@ import unittest
 from cloudshell.api.cloudshell_api import ResourceAttributesUpdateRequest, AttributeNameValue
 from shellfoundry.releasetools.test_helper import create_session_from_cloudshell_config
 
-stc_chassis = {'direct-stc': {'address': '192.168.42.160',
+stc_chassis = {'direct-stc': {'address': '192.168.42.218',
                               'controller': '',
                               'port': '',
                               'install_path': 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71',
                               'modules': 1,
                               },
-               'lab-server-stc': {'address': '192.168.42.160',
-                                  'controller': '192.168.42.156',
+               'lab-server-stc': {'address': '192.168.42.218',
+                                  'controller': '192.168.42.182',
                                   'port': '',
-                                  'install_path': 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71',
+                                  'install_path': 'C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.71',  # nopep8
                                   'modules': 1,
                                   },
                }
 
 
-class TestIxiaChassisShell(unittest.TestCase):
+class TestStcChassisShell(unittest.TestCase):
 
     session = None
 

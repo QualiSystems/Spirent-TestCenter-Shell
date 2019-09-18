@@ -8,6 +8,13 @@
         		<Rule Name="Configuration" />
       		</Rules>
     	</AttributeInfo>
+    	<AttributeInfo Name="Configured Controllers" Type="String" DefaultValue="" IsReadOnly="true"
+    				   Description="The controllers configured on this port in case of port that supports multi controllers.">
+      		<Rules>
+	       		<Rule Name="Available For Abstract Resources" />
+        		<Rule Name="Setting" />
+      		</Rules>
+    	</AttributeInfo>
     	<AttributeInfo Name="Controller Address" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="The IP address of the traffic server. Relevant only in case an external server is configured.">
       		<Rules>
@@ -27,7 +34,7 @@
                 <Rule Name="Setting"/>
             </Rules>
         </AttributeInfo>
-    	<AttributeInfo Name="Max Speed" Type="String" DefaultValue="1000" IsReadOnly="true"
+    	<AttributeInfo Name="Max Speed" Type="String" DefaultValue="1000" IsReadOnly="false"
     				   Description="Max speed supported by the interface (default units - MB).">
       		<Rules>
 	       		<Rule Name="Available For Abstract Resources" />
@@ -187,13 +194,16 @@
       		<Models>
 				<ResourceModel Name="Generic Traffic Generator Port" Description="Generaic Traffic Generator Port" SupportsConcurrentCommands="false">
     				<AttachedAttributes>
-        				<AttachedAttribute Name="Media Type" IsOverridable="true" IsLocal="true">
+        				<AttachedAttribute Name="Configured Controllers" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+        				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
         				<AttachedAttribute Name="Max Speed" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
-        				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
+        				<AttachedAttribute Name="Media Type" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
       				</AttachedAttributes>

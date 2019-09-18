@@ -1,4 +1,4 @@
-<Driver Description="TestCenter Chassis Driver" MainClass="driver.TestCenterChassisDriver" Name="TestCenter Chassis Driver" Version="1.2.7">
+<Driver Description="TestCenter Chassis Driver" MainClass="driver.TestCenterChassisDriver" Name="TestCenter Chassis Driver" Version="1.2.8">
     <Layout>
         <Command Description="Import device into Cloudshell" DisplayName="Autoload" Name="get_inventory" Tags="">
         </Command>

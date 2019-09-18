@@ -64,3 +64,4 @@ cloudshell_config.yml
 .settings
 
 *.zip
+ .README.md.html

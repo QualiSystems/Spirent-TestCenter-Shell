@@ -86,10 +86,13 @@ class StcHandler(object):
         resource = AutoLoadResource(model='Generic Traffic Generator Port', name='Port' + port.attributes['Index'],
                                     relative_address=relative_address)
         self.resources.append(resource)
-        max_speed = self._get_max_speed(port.obj_parent().obj_parent().attributes['SupportedSpeeds'])
+        max_speed = self._get_max_speed(port.parent.parent.attributes['SupportedSpeeds'])
         self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
                                                  attribute_name='Max Speed',
                                                  attribute_value=max_speed))
+        self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
+                                                 attribute_name='Configured Controllers',
+                                                 attribute_value=port.parent.attributes['TestPackage']))
 
     def _get_power_supply(self, power_supply):
         """ get power supplies resource and attributes. """
